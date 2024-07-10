@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>News</h1>
+<ul>
+    {% for item in news %}
+    <li>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.content }}</p>
+        <small>{{ item.date }}</small>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

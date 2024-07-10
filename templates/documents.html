@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Documents</h1>
+<ul>
+    {% for doc in documents %}
+    <li>
+        <a href="{{ url_for('document', filename=doc.filename) }}">{{ doc.filename }}</a> ({{ doc.upload_date }})
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

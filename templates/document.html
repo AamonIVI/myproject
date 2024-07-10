@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ document.filename }}</h1>
+<p>{{ document.description }}</p>
+<a href="{{ url_for('download_file', filename=document.category + '/' + document.subcategory + '/' + document.filename) }}">Download</a>
+{% endblock %}

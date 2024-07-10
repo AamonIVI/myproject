@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Admin Panel</h1>
+
+<h2>Post a News</h2>
+<form method="post">
+    <input type="hidden" name="news" value="1">
+    <label for="news_title">Title:</label>
+    <input type="text" id="news_title" name="news_title">
+    <label for="news_content">Content:</label>
+    <textarea id="news_content" name="news_content"></textarea>
+    <button type="submit">Post News</button>
+</form>
+
+<h2>Add a Document</h2>
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" name="document" value="1">
+    <label for="doc_category">Category:</label>
+    <select id="doc_category" name="doc_category">
+        {% for category in categories %}
+        <option value="{{ category }}">{{ category }}</option>
+        {% endfor %}
+    </select>
+    <label for="doc_subcategory">Subcategory:</label>
+    <select id="doc_subcategory" name="doc_subcategory">
+        {% for category, subcategories in categories.items() %}
+        <optgroup label="{{ category }}">
+            {% for subcategory in subcategories %}
+            <option value="{{ subcategory }}">{{ subcategory }}</option>
+            {% endfor %}
+        </optgroup>
+        {% endfor %}
+    </select>
+    <label for="doc_description">Description:</label>
+    <textarea id="doc_description" name="doc_description"></textarea>
+    <label for="doc_file">File:</label>
+    <input type="file" id="doc_file" name="doc_file">
+    <button type="submit">Upload Document</button>
+</form>
+{% endblock %}
